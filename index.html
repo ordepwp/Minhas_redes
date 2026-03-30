@@ -1,0 +1,267 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Lucas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <h1>Pedro Lucas</h1>
+        <div class="age"></div>
+        <div class="title">Minhas Redes Sociais</div>
+        
+        <div class="social-buttons">
+            <a href="https://www.tiktok.com/@ordepwp?_r=1&_t=ZS-956oy3CRPPN" 
+               target="_blank" rel="noopener noreferrer" 
+               class="social-btn tiktok-btn">
+               TikTok
+            </a>
+            <a href="https://www.instagram.com/ordepwp?igsh=MXZrZjN4c2Zrb2xhbg==" 
+               target="_blank" rel="noopener noreferrer" 
+               class="social-btn instagram-btn">
+               Instagram
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a0d2e 50%, #2a1b4d 100%);
+    color: #e8d5f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    max-width: 500px;
+    width: 100%;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container h1 {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #c084fc 0%, #e9d5ff 50%, #f3e8ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(192, 132, 252, 0.3);
+}
+
+.container .age {
+    font-size: clamp(1.3rem, 4.5vw, 2.2rem);
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 3.5rem;
+    color: #d0b8f5;
+    letter-spacing: 0.02em;
+}
+
+.container .title {
+    font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+    font-weight: 400;
+    margin-bottom: 3rem;
+    opacity: 0.85;
+    color: #b69df8;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.social-btn {
+    padding: 1.4rem 2.2rem;
+    font-size: clamp(1rem, 3.2vw, 1.25rem);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 16px;
+    color: #fff;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+    z-index: 1;
+}
+
+.social-btn:hover::before {
+    left: 100%;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(138, 43, 226, 0.4);
+}
+
+.social-btn:active {
+    transform: translateY(-2px) scale(1.01);
+}
+
+.tiktok-btn {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c084fc 100%);
+    border-image: linear-gradient(135deg, #8b5cf6, #c084fc) 1;
+}
+
+.tiktok-btn:hover {
+    background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #ec4899 100%);
+    box-shadow: 0 25px 50px rgba(139, 92, 246, 0.5);
+}
+
+.instagram-btn {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 25%, #a78bfa 50%, #8b5cf6 75%, #6366f1 100%);
+    border-image: linear-gradient(135deg, #ec4899, #6366f1) 1;
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(135deg, #f472b6 0%, #a78bfa 50%, #6366f1 100%);
+    box-shadow: 0 25px 50px rgba(236, 72, 153, 0.5);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a23 0%, #1a0d2e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.6s ease-out;
+}
+
+.loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(167, 139, 250, 0.2);
+    border-top: 4px solid #c084fc;
+    border-radius: 50%;
+    animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 768px) {
+    .social-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .social-btn {
+        min-width: 240px;
+    }
+    
+    .container h1 {
+        margin-bottom: 1rem;
+    }
+}</style><script>// Remove loading screen com delay suave
+window.addEventListener('load', () => {
+    const loading = document.getElementById('loading');
+    setTimeout(() => {
+        loading.classList.add('hidden');
+    }, 1200);
+});
+
+// Previne scroll suave desnecessário em mobile
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+    });
+});
+
+// Adiciona micro-interações nos botões
+document.querySelectorAll('.social-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.02)';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// PWA - Adiciona à tela inicial (opcional)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+    });
+}</script>
